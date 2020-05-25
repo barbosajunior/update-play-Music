@@ -41,6 +41,8 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
     String caminhoDasMusicas = "C:\\MUSIC PLAY\\MusicasTeclado\\"; 
     String caminhoDasNotas = "C:\\MUSIC PLAY\\NotasTeclado\\"; 
     String flag;
+    String nome;
+    String estencao;
     int cont =800;
     int totalLin=0;
     boolean clicado;
@@ -49,6 +51,7 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
     int current = 0;
     Cifra c;
     private Object e;
+    
     
     public FrmMusicaPlay() {
         initComponents();
@@ -79,8 +82,8 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
                 totalLin ++;
                }
             txtareamus.setText(String.join("\n", lines));
-         } catch (Exception e) {
-            System.out.println("erroo na leitura: " + e.getMessage());
+         } catch (Exception ex) {
+            System.out.println("erroo na leitura: " + ex.getMessage());
         }
          txtareamus.setCaretPosition(0);
   }
@@ -101,6 +104,7 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtareamus = new javax.swing.JTextPane();
         bt_ouvirmusica = new javax.swing.JButton();
+        txtMusica = new javax.swing.JTextField();
 
         Btnsair.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         Btnsair.setForeground(java.awt.Color.red);
@@ -133,7 +137,7 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel10.setForeground(java.awt.Color.red);
         jLabel10.setText("TOCAR  MÚSICAS TECLADO");
 
@@ -152,7 +156,7 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
         jLabel3.setText("Tempo da Música (Seg)");
 
         txtareamus.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red, 2));
-        txtareamus.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        txtareamus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtareamus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtareamusMouseEntered(evt);
@@ -163,7 +167,7 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(txtareamus);
 
-        bt_ouvirmusica.setFont(new java.awt.Font("Arial", 1, 22)); // NOI18N
+        bt_ouvirmusica.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         bt_ouvirmusica.setForeground(java.awt.Color.blue);
         bt_ouvirmusica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/musica.png"))); // NOI18N
         bt_ouvirmusica.setText("Ouvir Musica");
@@ -173,6 +177,8 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
             }
         });
 
+        txtMusica.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,41 +186,38 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(510, 510, 510)
+                .addGap(389, 389, 389)
                 .addComponent(jLabel10)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 847, Short.MAX_VALUE)
+                .addComponent(txtMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(184, 184, 184)
+                .addComponent(bt_ouvirmusica)
+                .addGap(83, 83, 83)
+                .addComponent(btniniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(Btnsair)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(249, 249, 249)
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtposicao, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(185, 185, 185))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(Btnsair)
-                                .addComponent(lblnota, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(30, 30, 30)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(btniniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(bt_ouvirmusica)
-                                    .addGap(5, 5, 5))
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txttempo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(93, 93, 93)))
-                        .addGap(210, 210, 210))))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtposicao, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(183, 183, 183))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblnota, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(167, 167, 167))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txttempo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(263, 263, 263))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,34 +230,36 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtposicao, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addComponent(lblnota, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblnota, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(7, 7, 7)
                         .addComponent(txttempo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(btniniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(bt_ouvirmusica, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(Btnsair)
-                        .addGap(29, 29, 29))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btniniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt_ouvirmusica))
+                            .addComponent(Btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        setBounds(3, 0, 1586, 900);
+        setSize(new java.awt.Dimension(1200, 573));
     }// </editor-fold>//GEN-END:initComponents
    
     private void BtnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsairActionPerformed
         // executor.shutdownNow();
-         this.dispose();    
+           this.dispose(); 
+      
     }//GEN-LAST:event_BtnsairActionPerformed
     boolean isRunning = false;
     ScheduledThreadPoolExecutor executor;
@@ -587,8 +592,17 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
 
     private void bt_ouvirmusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ouvirmusicaActionPerformed
         try {
-            // TODO add your handling code here:
-           Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Winamp\\winamp.exe\"winamp");
+            // Roda o winamp
+           //Runtime.getRuntime().exec("\"C:\\Program Files (x86)\\Winamp\\winamp.exe\"winamp");
+            //Roda uma determinada musica.mp3        
+            //Runtime r = Runtime.getRuntime();
+            //r.exec("cmd /c C:\\CAMINHO\\musica.mp3");
+            
+           txtMusica.setText(txtpmusica.getText());
+           nome = txtMusica.getText();
+           Runtime r = Runtime.getRuntime();
+           r.exec("cmd /c F:\\MP3\\NACIONAL\\\"" + nome + "\".mp3");
+           
         } catch (IOException ex) {
             Logger.getLogger(FrmMusicaPlay.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -604,6 +618,7 @@ public class FrmMusicaPlay extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblnota;
+    private javax.swing.JTextField txtMusica;
     private javax.swing.JTextPane txtareamus;
     private javax.swing.JTextField txtposicao;
     public javax.swing.JTextField txttempo;

@@ -63,6 +63,9 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         btngravar = new javax.swing.JButton();
         scrollPane2 = new java.awt.ScrollPane();
         tblmusicas = new javax.swing.JTable();
+        jButtonconverter = new javax.swing.JButton();
+        jTextFieldAtual = new javax.swing.JTextField();
+        jTextFieldtroca = new javax.swing.JTextField();
 
         lblpesquisa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblpesquisa.setForeground(java.awt.Color.blue);
@@ -84,8 +87,10 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         lblmusicacadastrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/dj_peq.png"))); // NOI18N
         lblmusicacadastrada.setText("Músicas Cadastradas :");
 
-        txtpmusica.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtpmusica.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtpmusica.setForeground(java.awt.Color.blue);
+        txtpmusica.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtpmusica.setAutoscrolls(false);
         txtpmusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpmusicaActionPerformed(evt);
@@ -108,7 +113,7 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         });
 
         txtarea.setColumns(20);
-        txtarea.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        txtarea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtarea.setRows(5);
         txtarea.setAutoscrolls(false);
         txtarea.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red, 2));
@@ -119,7 +124,7 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/Vis_Musica.png"))); // NOI18N
         jLabel1.setText("Musica :");
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel10.setForeground(java.awt.Color.red);
         jLabel10.setText("VISUALIZAR MÚSICAS TECLADO");
 
@@ -134,7 +139,7 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         });
 
         tblmusicas.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red, 2));
-        tblmusicas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tblmusicas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tblmusicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -153,74 +158,99 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         });
         scrollPane2.add(tblmusicas);
 
+        jButtonconverter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonconverter.setForeground(new java.awt.Color(250, 30, 20));
+        jButtonconverter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/Nota.png"))); // NOI18N
+        jButtonconverter.setText("Novo Tom");
+        jButtonconverter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonconverterActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAtual.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFieldAtual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jTextFieldAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAtualActionPerformed(evt);
+            }
+        });
+
+        jTextFieldtroca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFieldtroca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jTextFieldtroca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldtrocaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblpesquisa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtpmusica))
+                    .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblmusicacadastrada, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(lblpesquisa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtpmusica, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btngravar)
-                        .addGap(105, 105, 105)
-                        .addComponent(btntocar)
-                        .addGap(156, 156, 156)
-                        .addComponent(Btnsair)
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblmusicacadastrada, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 265, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                                .addGap(0, 627, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jTextFieldAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldtroca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonconverter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btngravar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btntocar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Btnsair)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(438, 438, 438))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblmusicacadastrada)
-                            .addComponent(jLabel1))
-                        .addGap(1, 1, 1)))
-                .addGap(8, 8, 8)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblmusicacadastrada)
+                    .addComponent(jLabel1))
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(scrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btngravar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btntocar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblpesquisa)
-                                    .addComponent(txtpmusica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(4, 4, 4)))
-                        .addGap(10, 10, 10))
-                    .addComponent(Btnsair, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextFieldAtual, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btngravar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtpmusica, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblpesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonconverter, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldtroca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btntocar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 1586, 908);
+        setBounds(0, 0, 1200, 573);
     }// </editor-fold>//GEN-END:initComponents
 
     public String GuardarATexto(File arquivo, String contenido) {
@@ -240,6 +270,7 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
     private void BtnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsairActionPerformed
 
         this.dispose();
+         
     }//GEN-LAST:event_BtnsairActionPerformed
 
     private void btntocarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntocarActionPerformed
@@ -257,9 +288,9 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
         btntocar.setVisible(true);
         int linha = tblmusicas.getSelectedRow();
         txtpmusica.setText(tblmusicas.getValueAt(linha, 0).toString());
-        File arquivo = new File(caminho + txtpmusica.getText() + ".txt");
+        File arquivo1 = new File(caminho + txtpmusica.getText() + ".txt");
         try {
-            BufferedReader ler = new BufferedReader(new FileReader(arquivo));
+            BufferedReader ler = new BufferedReader(new FileReader(arquivo1));
             String lin = ler.readLine();
             while (lin != null) {
                 txtarea.append(lin + "\n");
@@ -295,13 +326,24 @@ public class FrmVisMusicas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btngravarActionPerformed
 
+    private void jTextFieldAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAtualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAtualActionPerformed
+
+    private void jTextFieldtrocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldtrocaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldtrocaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btnsair;
     private javax.swing.JButton btngravar;
     private javax.swing.JButton btntocar;
+    private javax.swing.JButton jButtonconverter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldAtual;
+    private javax.swing.JTextField jTextFieldtroca;
     private javax.swing.JLabel lblmusicacadastrada;
     private javax.swing.JLabel lblpesquisa;
     private java.awt.ScrollPane scrollPane2;

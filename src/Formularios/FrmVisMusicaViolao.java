@@ -1,5 +1,6 @@
 package Formularios;
 
+import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -71,7 +72,7 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
         lblmusica.setText("Músicas Cadastradas :");
 
         tblmusicas.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red, 2));
-        tblmusicas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tblmusicas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tblmusicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -90,15 +91,15 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
         });
 
         txtarea.setColumns(20);
-        txtarea.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        txtarea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtarea.setRows(5);
         txtarea.setAutoscrolls(false);
         txtarea.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red, 2));
         jScrollPane1.setViewportView(txtarea);
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel10.setForeground(java.awt.Color.red);
-        jLabel10.setText("VISUALIZAR MÚSICAS");
+        jLabel10.setText("VISUALIZAR MÚSICAS VIOLÃO");
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel1.setForeground(java.awt.Color.blue);
@@ -140,7 +141,7 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
             }
         });
 
-        txtmusica.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtmusica.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtmusica.setForeground(java.awt.Color.blue);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,24 +155,29 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel10))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblpesquisa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtmusica, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btngravar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118)
-                .addComponent(btntocar)
-                .addGap(154, 154, 154)
-                .addComponent(Btnsair)
-                .addGap(33, 33, 33))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(tblmusicas, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1098, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblpesquisa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtmusica))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(tblmusicas, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(374, 374, 374))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(btngravar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btntocar)
+                        .addGap(119, 119, 119)
+                        .addComponent(Btnsair)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,19 +189,19 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tblmusicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                    .addComponent(tblmusicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblpesquisa)
                     .addComponent(txtmusica, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btngravar)
                     .addComponent(btntocar)
                     .addComponent(Btnsair))
-                .addGap(22, 22, 22))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 1574, 895);
+        setBounds(0, 0, 1200, 573);
     }// </editor-fold>//GEN-END:initComponents
     
      public String GuardarATexto(File arquivo, String contenido) {
@@ -216,9 +222,9 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
         btntocar.setVisible(true);
         int linha = tblmusicas.getSelectedRow();
         txtmusica.setText(tblmusicas.getValueAt(linha, 0).toString());
-        File arquivo = new File(caminho + txtmusica.getText() + ".txt");
+        File arquivo1 = new File(caminho + txtmusica.getText() + ".txt");
         try {
-            BufferedReader ler = new BufferedReader(new FileReader(arquivo));
+            BufferedReader ler = new BufferedReader(new FileReader(arquivo1));
             String lin = ler.readLine();
             while (lin != null) {
                 txtarea.append(lin + "\n");
@@ -250,7 +256,7 @@ public class FrmVisMusicaViolao extends javax.swing.JInternalFrame {
 
     private void btntocarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntocarActionPerformed
         FrmMusicaPlayViolao musicaplay = new FrmMusicaPlayViolao();
-        FrmMenu.jDesktopPane1.add(musicaplay);
+        Component add = FrmMenu.jDesktopPane1.add(musicaplay);
         musicaplay.setVisible(true);
     }//GEN-LAST:event_btntocarActionPerformed
 
